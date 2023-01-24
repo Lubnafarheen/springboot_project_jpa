@@ -34,6 +34,10 @@ public class Student {
 
     private LocalDateTime registrationDate;
 
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
     public Student() {
         this.status = true;
         this.registrationDate = LocalDateTime.now();
@@ -45,6 +49,14 @@ public class Student {
         this.lastName = lastName;
         this.email = email;
         this.birthDate = birthDate;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getId() {
